@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+	<div class="o-input--num-display">0</div>
+	<div class="o-input--num-display">1</div>
+	<div class="o-input--num-display">2</div>
+	<div class="o-input--num-display">3</div>
+	<div class="o-input--num-display">4</div>
+	<div class="o-input--num-display">5</div>
+	<div class="o-input--num-display">6</div>
+	<div class="o-input--num-display">7</div>
+	<div class="o-input--num-display">8</div>
+	<div class="o-input--num-display">9</div>
+
+
+	
+
+	
+	
+</body>
+
+<script>
+
+window.onload = function(){
+	let input_nums = ''
+	var sampleAElements = document.getElementsByClassName( "o-input--num-display" );
+
+
+	for(let $i = 0; $i < sampleAElements.length; $i++){
+		// console.log(sampleAElements[$i].textContent)
+		input_nums = input_nums + sampleAElements[$i].textContent
+
+	}
+
+
+	// for( var $i = 0; $i < $sampleAElements.length; $i++ ) {
+    //     $sampleAElements[$i].onclick = function () {
+    //         $sampleOutput.innerHTML = parseInt( $sampleOutput.innerHTML ) + 1;
+    //     }
+    // }
+	console.log(input_nums)
+
+
+
+
+}
+
+</script>
+</html>

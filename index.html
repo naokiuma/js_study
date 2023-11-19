@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<table id="calendar">
+		<tr>
+		  <th>日</th>
+		  <th>月</th>
+		  <th>火</th>
+		  <th>水</th>
+		  <th>木</th>
+		  <th>金</th>
+		  <th>土</th>
+		</tr>
+		<tr id="week1"></tr>
+		<tr id="week2"></tr>
+		<tr id="week3"></tr>
+		<tr id="week4"></tr>
+		<tr id="week5"></tr>
+	  </table>
+
+	  
+
+
+
+
+
+	<input type="number" id="js_min" class="js_test">
+	<input type="number" id="js_seconds">
+	<button onclick="test()">テスト</button>
+
+	
+	<script>
+		function test(){
+
+			// const test = document.getElementsByClassName('js_test');
+			// console.log(test[0])
+
+			const min = document.getElementById('js_min')
+			console.log(min)
+			const seco = document.getElementById('js_seconds')
+			let total_seconds = (60 * Number(min.value)) + Number(seco.value);
+
+
+
+			console.log(min.value)
+			console.log(seco.value);
+			console.log(total_seconds)
+			
+		}
+		// const calendarBody = document.getElementById('calendar');
+		// let day = 10;
+		// let base = document.createElement('tr')
+		// base.setAttribute('id',`week${day}`)
+		// calendarBody.querySelector('table').appendChild(base)
+
+
+
+
+
+
+
+		const calendarBody = document.getElementById('calendar');
+		const week1 = document.getElementById('week1');
+		const week2 = document.getElementById('week2');
+		const week3 = document.getElementById('week3');
+		const week4 = document.getElementById('week4');
+		const week5 = document.getElementById('week5');
+
+		// 今の日付を取得
+		const now = new Date();
+		// 今年の年を取得
+		const year = now.getFullYear();
+		// 11月を設定 (0-indexed month)
+		const month = 10; // 11月は10を指定
+
+		// 11月の最初の日を取得
+		const firstDayOfMonth = new Date(year, month, 1);
+		// 曜日を取得 (0 = 日曜日, 1 = 月曜日, ..., 6 = 土曜日)
+		const startingDay = firstDayOfMonth.getDay();
+
+		// その月の日数を取得
+		const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+		let date = 1;
+
+		// 最初の週の日付を追加
+		for (let i = 0; i < 7; i++) {
+		if (i < startingDay) {
+			week1.innerHTML += '<td></td>';
+		} else {
+			week1.innerHTML += `<td>${date}</td>`;
+			date++;
+		}
+		}
+
+		// 2週目から最後の週まで日付を追加
+		for (let i = 2; i <= 5; i++) {
+		const currentWeek = eval(`week${i}`);
+		for (let j = 0; j < 7 && date <= daysInMonth; j++) {
+			currentWeek.innerHTML += `<td>${date}</td>`;
+			date++;
+		}
+		}
+
+		// テーブルに表示
+		calendarBody.appendChild(week1);
+		calendarBody.appendChild(week2);
+		calendarBody.appendChild(week3);
+		calendarBody.appendChild(week4);
+		calendarBody.appendChild(week5);
+	</script>
+</body>
+</html>
