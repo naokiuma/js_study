@@ -35,21 +35,29 @@ window.onload = function () {
 				//7日loop。
 				//1週目だけ、初日をこの月の最初の日にする
 				let target_week_head_tag = document.getElementById(`week${head_i}`);
-				console.log(target_week_head_tag)
+				// console.log(target_week_head_tag)
 
+
+				//1週目
 				if(head_i === 1){
 					for(let day_i = 1; day_i <= 7; day_i++){
+						let td_open_Head = total_day == day ? '<td class="target">' : '<td>';
+						console.log(td_open_Head)
 						if(day_i <= weekOfFirstDay + 1){
-							target_week_head_tag.innerHTML += `<td class="a"></td>`;
+							//最初の日より前なら数字は出さない
+							target_week_head_tag.innerHTML += `${td_open_Head}</td>`;
 						}else{
-							target_week_head_tag.innerHTML += `<td class="a">${total_day}</td>`;
+							target_week_head_tag.innerHTML += `${td_open_Head + total_day}</td>`;
 							total_day++;
 						}
 					}
 
+				//2週目以降
 				}else{
 					for(let day_i = 1; day_i <= 7; day_i++){
-						target_week_head_tag.innerHTML += `<td>${total_day}</td>`;
+						let td_open_Head = total_day == day ? '<td class="target">' : '<td>';
+						console.log(td_open_Head)
+						target_week_head_tag.innerHTML += `${td_open_Head + total_day}</td>`;
 						total_day++;
 					}
 				}
